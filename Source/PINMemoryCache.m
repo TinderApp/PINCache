@@ -273,8 +273,6 @@ static NSString * const PINMemoryCacheSharedName = @"PINMemoryCacheSharedName";
         [self removeExpiredObjects];
     }
 
-    NSUInteger totalCost = 0;
-
     [self lock];
         NSUInteger totalCost = _totalCost;
     [self unlock];
