@@ -1604,7 +1604,7 @@ static NSURL *_sharedTrashURL;
     // Avoids pause lock when PINRemoteImageManager init creates disk cache
     // and the initial background disk scan blocks the initialization thread
     // from checking this property.
-    return _isTTLCache;
+    return _ttlCache;
 }
 
 #if TARGET_OS_IPHONE
