@@ -1600,13 +1600,11 @@ static NSURL *_sharedTrashURL;
 
 - (BOOL)isTTLCache
 {
-    BOOL isTTLCache;
-
-    [self lock];
-        isTTLCache = _ttlCache;
-    [self unlock];
-
-    return isTTLCache;
+    // Mutating ttlCache is deprecated, skip the lock
+    // Avoids pause lock when PINRemoteImageManager init creates disk cache
+    // and the initial background disk scan blocks the initialization thread
+    // from checking this property.
+    return _isTTLCache;
 }
 
 #if TARGET_OS_IPHONE
